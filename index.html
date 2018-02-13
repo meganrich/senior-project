@@ -20,6 +20,7 @@
     <br>
     <h2 id="result"></h2>
     <h3 id="correctyear"></h3>
+    <button class="button" onclick="nextQuestion()">Next</button>
 
     <script>
       function pickRandom() {
@@ -27,24 +28,33 @@
       }
       var which = pickRandom();
         document.getElementById("event").innerHTML = facts[which].event;
-      var rYear = Math.floor((Math.random() * (2000 - 1000) + 1000));
+      var rYear = Math.floor((Math.random() * (2000 - 1400) + 1400));
         document.getElementById("randyear").innerHTML = rYear;
    
       function beforeFunction() {
-        document.getElementById("correctyear").innerHTML = facts[which].year;
         if (Number(rYear) > Number(facts[which].year)) {
           document.getElementById("result").innerHTML = "Correct!";
             } else { document.getElementById("result").innerHTML = "Incorrect!";
+            document.getElementById("correctyear").innerHTML = facts[which].year;
               }
       }
       function afterFunction() {
-        document.getElementById("correctyear").innerHTML = facts[which].year;
         if (Number(rYear) < Number(facts[which].year)) {
           document.getElementById("result").innerHTML = "Correct!";
             } else { document.getElementById("result").innerHTML = "Incorrect!";
-              document.getElementById("correctyear").innerHTML = event.year;
+            document.getElementById("correctyear").innerHTML = facts[which].year;
               }
       }
+      function nextQuestion() {
+        location.reload();
+      }
+     // var score=0 
+      //var score = document.getElementById("scorebox").value;
+      //function scoreboard() {
+        //if (Number(rYear) < Number(facts[which].year))
+        //score= score +1;
+      //} 
     </script>
   </body>
 </html>
+
